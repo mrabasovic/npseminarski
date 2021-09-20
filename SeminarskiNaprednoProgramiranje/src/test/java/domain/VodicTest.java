@@ -10,21 +10,21 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class VodicTest {
+public class VodicTest {
 
 	Vodic v;
 
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		v = new Vodic();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void testVratiListu() {
+	public void testVratiListu() {
 		ArrayList<AbstractDomainObject> lista = new ArrayList<>();
 		Vodic v = new Vodic(123L, "Mladen", "Rabasovic", "0607272919", "mladen@gmail", 5);
         
@@ -34,13 +34,13 @@ class VodicTest {
 
 
 	@Test
-	void testVodic() {
+	public void testVodic() {
 		v = new Vodic();
 		assertNotNull(v);
 	}
 
 	@Test
-	void testVodicLongStringStringStringStringInt() {
+	public void testVodicLongStringStringStringStringInt() {
 		v = new Vodic(3351L, "Milan", "Milinkovic", "0607272919","milan@turs.com",6);
 		assertNotNull(v);
 		assertEquals(3351L, v.getVodicID());
@@ -52,13 +52,13 @@ class VodicTest {
 	}
 
 	@Test
-	void testSetVodicID() {
+	public void testSetVodicID() {
 		v.setVodicID(12355L);
 		assertEquals(12355L, v.getVodicID());
 	}
 
 	@Test
-	void testSetVodicIDNull() {
+	public void testSetVodicIDNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> v.setVodicID(null) );
 	}
@@ -70,73 +70,73 @@ class VodicTest {
 	}
 
 	@Test
-	void testSetImeNull() {
+	public void testSetImeNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> v.setIme(null) );
 	}
 	
 	@Test
-	void testSetImeKratakString() {
+	public void testSetImeKratakString() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> v.setIme("A") );
 	}
 
 	@Test
-	void testSetPrezime() {
+	public void testSetPrezime() {
 		v.setPrezime("Radenovic");
 		assertEquals("Radenovic", v.getPrezime());
 	}
 	
 	@Test
-	void testSetPrezimeNull() {
+	public void testSetPrezimeNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> v.setPrezime(null) );
 	}
 	
 	@Test
-	void testSetPrezimeKratakString() {
+	public void testSetPrezimeKratakString() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> v.setPrezime("A") );
 	}
 
 	@Test
-	void testSetBrojTelefona() {
+	public void testSetBrojTelefona() {
 		v.setBrojTelefona("0607272919");
 		assertEquals("0607272919", v.getBrojTelefona());
 	}
 
 	@Test
-	void testSetBrojTelefonaNema10() {
+	public void testSetBrojTelefonaNema10() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> v.setEmail("060727291") );
 	}
 	
 	@Test
-	void testSetEmail() {
+	public void testSetEmail() {
 		v.setEmail("milan@gmail.com");
 		assertEquals("milan@gmail.com", v.getEmail());
 	}
 
 	@Test
-	void testSetEmailNull() {
+	public void testSetEmailNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> v.setEmail(null) );
 	}
 	
 	@Test
-	void testSetEmailNemaAt() {
+	public void testSetEmailNemaAt() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> v.setEmail("milangmail.com") );
 	}
 	
 	@Test
-	void testSetGodineIskustva() {
+	public void testSetGodineIskustva() {
 		v.setGodineIskustva(7);
 		assertEquals(7, v.getGodineIskustva());
 	}
 	
 	@Test
-	void testSetGodineIskustvaNegativan() {
+	public void testSetGodineIskustvaNegativan() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> v.setGodineIskustva(-2) );
 	}
@@ -148,7 +148,7 @@ class VodicTest {
 		"Marko, Milanovic, Milan, Markovic, false",
 		"Marko, Markovic, Marko, Milanovic, false"
 	})
-	void testEqualsObject(String ime1, String prezime1, String ime2, String prezime2, boolean eq) {
+	public void testEqualsObject(String ime1, String prezime1, String ime2, String prezime2, boolean eq) {
 		v.setIme(ime1);
 		v.setPrezime(prezime1);
 		
@@ -160,7 +160,7 @@ class VodicTest {
 	}
 
 	@Test
-	void testToString() {
+	public void testToString() {
 		v.setIme("Milan");
 		v.setPrezime("Milanovic");
 		

@@ -15,25 +15,25 @@ import domain.Termin;
 import domain.TipPrevoza;
 import domain.Vodic;
 
-class ControllerTest {
+public class ControllerTest {
 	DBBroker db;
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		db = new DBBroker();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void testController() {
+	public void testController() {
 		Controller c = new Controller();
 		assertNotNull(c);
 	}
 
 	@Test
-	void testVratiHotele() {
+	public void testVratiHotele() {
 		Hotel h = new Hotel();
 		h.setHotelID(1l);
 		h.setGrad("Beograd");
@@ -48,7 +48,7 @@ class ControllerTest {
 	}
 
 	@Test
-	void testVratiVodice() {
+	public void testVratiVodice() {
 		Vodic v = new Vodic();
 		v.setVodicID(11l);
 		v.setIme("Milan");
@@ -61,7 +61,7 @@ class ControllerTest {
 	}
 
 	@Test
-	void testVratiPrevoz() {
+	public void testVratiPrevoz() {
 		TipPrevoza tp = new TipPrevoza();
 		tp.setOpis("Avion");
 		db.dodajPrevoz(tp);
@@ -73,7 +73,7 @@ class ControllerTest {
 	}
 
 	@Test
-	void testVratiTermine() {
+	public void testVratiTermine() {
 		Termin t = new Termin();
 		t.setTerminID(1);
 		
@@ -84,7 +84,7 @@ class ControllerTest {
 	}
 
 	@Test
-	void testVratiKlijente() {
+	public void testVratiKlijente() {
 		Klijent k = new Klijent();
 		k.setIme("Radovan");
 		

@@ -9,20 +9,20 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class TipPrevozaTest {
+public class TipPrevozaTest {
 	TipPrevoza tp;
 	
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		tp = new TipPrevoza();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void testVratiListu() {
+	public void testVratiListu() {
 		ArrayList<AbstractDomainObject> lista = new ArrayList<>();
 		TipPrevoza tp = new TipPrevoza(1L, "Autobus");
         
@@ -31,13 +31,13 @@ class TipPrevozaTest {
 	}
 	
 	@Test
-	void testTipPrevoza() {
+	public void testTipPrevoza() {
 		tp = new TipPrevoza();
 		assertNotNull(tp);
 	}
 
 	@Test
-	void testTipPrevozaLongString() {
+	public void testTipPrevozaLongString() {
 		tp = new TipPrevoza(553L, "Autobuski prevoz");
 		assertNotNull(tp);
 		assertEquals(553L, tp.getTipPrevozaID());
@@ -45,31 +45,31 @@ class TipPrevozaTest {
 	}
 
 	@Test
-	void testSetTipPrevozaID() {
+	public void testSetTipPrevozaID() {
 		tp.setTipPrevozaID(552L);
 		assertEquals(552L, tp.getTipPrevozaID());
 	}
 	
 	@Test
-	void testSetTipPrevozaIDNull() {
+	public void testSetTipPrevozaIDNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> tp.setTipPrevozaID(null) );
 	}
 
 	@Test
-	void testSetOpis() {
+	public void testSetOpis() {
 		tp.setOpis("Tip prevoza je avion");
 		assertEquals("Tip prevoza je avion", tp.getOpis());
 	}
 	
 	@Test
-	void testSetOpisNull() {
+	public void testSetOpisNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> tp.setOpis(null) );
 	}
 
 	@Test
-	void testToString() {
+	public void testToString() {
 		tp.setOpis("Sopstveni prevoz");
 		String s = tp.toString();
 		assertTrue(s.contains("Sopstveni prevoz"));

@@ -8,20 +8,20 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class HotelTest {
+public class HotelTest {
 
 	Hotel h;
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		h = new Hotel();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void testVratiListu() {
+	public void testVratiListu() {
 		ArrayList<AbstractDomainObject> lista = new ArrayList<>();
 		Hotel h = new Hotel(77L, "Iberostar", "Becici");
         
@@ -30,13 +30,13 @@ class HotelTest {
 	}
 
 	@Test
-	void testHotel() {
+	public void testHotel() {
 		h = new Hotel();
 		assertNotNull(h);
 	}
 
 	@Test
-	void testHotelLongStringString() {
+	public void testHotelLongStringString() {
 		h = new Hotel(123L, "Hilton", "Beograd");
 		assertNotNull(h);
 		assertEquals(123L, h.getHotelID());
@@ -45,43 +45,43 @@ class HotelTest {
 	}
 
 	@Test
-	void testSetHotelID() {
+	public void testSetHotelID() {
 		h.setHotelID(123L);
 		assertEquals(123L, h.getHotelID());
 	}
 
 	@Test
-	void testSetHotelIDNull() {
+	public void testSetHotelIDNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> h.setHotelID(null) );
 	}
 	
 	@Test
-	void testSetNazivHotela() {
+	public void testSetNazivHotela() {
 		h.setNazivHotela("Hilton");
 		assertEquals("Hilton", h.getNazivHotela());
 	}
 
 	@Test
-	void testSetNazivHotelaNull() {
+	public void testSetNazivHotelaNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> h.setNazivHotela(null) );
 	}
 	
 	@Test
-	void testSetGrad() {
+	public void testSetGrad() {
 		h.setGrad("Beograd");
 		assertEquals("Beograd", h.getGrad());
 	}
 
 	@Test
-	void testSetGradNull() {
+	public void testSetGradNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> h.setGrad(null) );
 	}
 	
 	@Test
-	void testToString() {
+	public void testToString() {
 		h.setNazivHotela("Hilton");
 		String s = h.toString();
 		assertTrue(s.contains("Hilton"));

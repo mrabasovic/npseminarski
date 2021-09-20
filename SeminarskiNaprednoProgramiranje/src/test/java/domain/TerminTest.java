@@ -9,20 +9,20 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class TerminTest {
+public class TerminTest {
 	Termin t;
 	
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		t = new Termin();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void testVratiListu() {
+	public void testVratiListu() {
 		ArrayList<AbstractDomainObject> lista = new ArrayList<>();
 		Aranzman a = new Aranzman();
 		Klijent k = new Klijent();
@@ -36,13 +36,13 @@ class TerminTest {
 	}
 
 	@Test
-	void testTermin() {
+	public void testTermin() {
 		t = new Termin();
 		assertNotNull(t);
 	}
 
 	@Test
-	void testTerminAranzmanIntDateDateDoubleDoubleDoubleKlijentTipPrevoza() {
+	public void testTerminAranzmanIntDateDateDoubleDoubleDoubleKlijentTipPrevoza() {
 		Aranzman a = new Aranzman();
 		Klijent k = new Klijent();
 		TipPrevoza tp = new TipPrevoza();
@@ -62,109 +62,109 @@ class TerminTest {
 	}
 
 	@Test
-	void testSetTerminID() {
+	public void testSetTerminID() {
 		t.setTerminID(123);
 		assertEquals(123, t.getTerminID());
 	}
 
 	@Test
-	void testSetTerminIDNegativan() {
+	public void testSetTerminIDNegativan() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> t.setTerminID(-2) );
 	}
 	
 	@Test
-	void testSetDatumOd() {
+	public void testSetDatumOd() {
 		Date d = new Date();
 		t.setDatumOd(d);
 	}
 
 	@Test
-	void testSetDatumOdNull() {
+	public void testSetDatumOdNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> t.setDatumOd(null) );
 	}
 	
 	@Test
-	void testSetDatumDo() {
+	public void testSetDatumDo() {
 		Date d = new Date();
 		t.setDatumDo(d);
 	}
 
 	@Test
-	void testSetDatumDoNull() {
+	public void testSetDatumDoNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> t.setDatumDo(null) );
 	}
 	
 	@Test
-	void testSetCenaBezPDV() {
+	public void testSetCenaBezPDV() {
 		t.setCenaBezPDV(500);
 		assertEquals(500, t.getCenaBezPDV());
 	}
 
 	@Test
-	void testSetCenaBezPDVNegativna() {
+	public void testSetCenaBezPDVNegativna() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> t.setCenaBezPDV(-200) );
 	}
 	
 	@Test
-	void testSetPoreskaStopa() {
+	public void testSetPoreskaStopa() {
 		t.setPoreskaStopa(1);
 		assertEquals(1, t.getPoreskaStopa());
 	}
 
 	@Test
-	void testSetPoreskaStopaNegativna() {
+	public void testSetPoreskaStopaNegativna() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> t.setPoreskaStopa(-2) );
 	}
 	
 	@Test
-	void testSetCenaSaPDV() {
+	public void testSetCenaSaPDV() {
 		t.setCenaSaPDV(520);
 		assertEquals(520, t.getCenaSaPDV());
 	}
 
 	@Test
-	void testSetCenaSaPDVNegativna() {
+	public void testSetCenaSaPDVNegativna() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> t.setCenaSaPDV(-2) );
 	}
 	
 	@Test
-	void testSetKlijent() {
+	public void testSetKlijent() {
 		Klijent k = new Klijent();
 		assertNotNull(k);
 	}
 
 	@Test
-	void testSetKlijentNull() {
+	public void testSetKlijentNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> t.setKlijent(null) );
 	}
 	
 	@Test
-	void testSetTipPrevoza() {
+	public void testSetTipPrevoza() {
 		TipPrevoza tp = new TipPrevoza();
 		assertNotNull(tp);
 	}
 
 	@Test
-	void testSetTipPrevozaNull() {
+	public void testSetTipPrevozaNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> t.setTipPrevoza(null) );
 	}
 	
 	@Test
-	void testSetAranzman() {
+	public void testSetAranzman() {
 		Aranzman a = new Aranzman();
 		assertNotNull(a);
 	}
 	
 	@Test
-	void testSetAranzmanNull() {
+	public void testSetAranzmanNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> t.setAranzman(null) );
 	}

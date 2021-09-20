@@ -10,19 +10,19 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class AdministratorTest {
+public class AdministratorTest {
 	Administrator a;
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		a = new Administrator();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void testVratiListu() {
+	public void testVratiListu() {
 		ArrayList<AbstractDomainObject> lista = new ArrayList<>();
 		Administrator a = new Administrator(55L, "Mladen", "Rabasovic", "mrabasovic", "mladen123");
         
@@ -31,13 +31,13 @@ class AdministratorTest {
 	}
 
 	@Test
-	void testAdministrator() {
+	public void testAdministrator() {
 		a = new Administrator();
 		assertNotNull(a);
 	}
 
 	@Test
-	void testAdministratorLongStringStringStringString() {
+	public void testAdministratorLongStringStringStringString() {
 		a = new Administrator(667L, "Mladen", "Rabasovic", "mrabasovic", "mladen123");
 		assertNotNull(a);
 		assertEquals(667L, a.getAdministratorID());
@@ -48,79 +48,79 @@ class AdministratorTest {
 	}
 
 	@Test
-	void testSetAdministratorID() {
+	public void testSetAdministratorID() {
 		a.setAdministratorID(667L);
 		assertEquals(667L, a.getAdministratorID());
 	}
 
 	@Test
-	void testSetImeAdministratora() {
+	public void testSetImeAdministratora() {
 		a.setImeAdministratora("Mladen");
 		assertEquals("Mladen", a.getImeAdministratora());
 	}
 
 	@Test
-	void testSetImeAdministratoraNull() {
+	public void testSetImeAdministratoraNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> a.setImeAdministratora(null) );
 	}
 	
 	@Test
-	void testSetImeAdministratoraKratko() {
+	public void testSetImeAdministratoraKratko() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> a.setImeAdministratora("M") );
 	}
 	
 	@Test
-	void testSetPrezimeAdministratora() {
+	public void testSetPrezimeAdministratora() {
 		a.setPrezimeAdministratora("Rabasovic");
 		assertEquals("Rabasovic", a.getPrezimeAdministratora());
 	}
 	
 	@Test
-	void testSetPrezimeAdministratoraNull() {
+	public void testSetPrezimeAdministratoraNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> a.setPrezimeAdministratora(null) );
 	}
 	
 	@Test
-	void testSetPrezimeAdministratoraKratko() {
+	public void testSetPrezimeAdministratoraKratko() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> a.setPrezimeAdministratora("R") );
 	}
 
 	@Test
-	void testSetUsername() {
+	public void testSetUsername() {
 		a.setUsername("mrabasovic");
 		assertEquals("mrabasovic", a.getUsername());
 	}
 
 	@Test
-	void testSetUsernameNull() {
+	public void testSetUsernameNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> a.setUsername(null) );
 	}
 	
 	@Test
-	void testSetPassword() {
+	public void testSetPassword() {
 		a.setPassword("mladen123");
 		assertEquals("mladen123", a.getPassword());
 	}
 
 	@Test
-	void testSetPasswordNull() {
+	public void testSetPasswordNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> a.setPassword(null) );
 	}
 	
 	@Test
-	void testSetPasswordKratka() {
+	public void testSetPasswordKratka() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> a.setPassword("abc") );
 	}
 	
 	@Test
-	void testToString() {
+	public void testToString() {
 		a.setImeAdministratora("Mladen");
 		a.setPrezimeAdministratora("Rabasovic");
 		String s = a.toString();
@@ -135,7 +135,7 @@ class AdministratorTest {
 		"Mladen, Rabasovic, Milan, Markovic, false",
 		"Mladen, Markovic, Marko, Milanovic, false"
 	})
-	void testEqualsObject(String ime1, String prezime1, String ime2, String prezime2, boolean eq) {
+	public void testEqualsObject(String ime1, String prezime1, String ime2, String prezime2, boolean eq) {
 		a.setImeAdministratora(ime1);
 		a.setPrezimeAdministratora(prezime1);
 		

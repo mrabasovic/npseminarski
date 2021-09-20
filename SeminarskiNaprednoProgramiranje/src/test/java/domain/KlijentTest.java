@@ -10,19 +10,19 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class KlijentTest {
+public class KlijentTest {
 	Klijent k;
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		k = new Klijent();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void testVratiListu() {
+	public void testVratiListu() {
 		ArrayList<AbstractDomainObject> lista = new ArrayList<>();
 		Klijent k = new Klijent(44L, "Marko", "Markovic", "0622844313", "marko@gmail.com");
         
@@ -31,90 +31,90 @@ class KlijentTest {
 	}
 
 	@Test
-	void testKlijent() {
+	public void testKlijent() {
 		k = new Klijent();
 		assertNotNull(k);
 	}
 
 	@Test
-	void testKlijentLongStringStringStringString() {
+	public void testKlijentLongStringStringStringString() {
 		k = new Klijent(124L, "Petar", "Petric", "061223457", "petar@gmail.com");
 	}
 
 	@Test
-	void testSetKlijentID() {
+	public void testSetKlijentID() {
 		k.setKlijentID(124L);
 		assertEquals(124L, k.getKlijentID());
 	}
 
 	@Test
-	void testSetKlijentIDNull() {
+	public void testSetKlijentIDNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> k.setKlijentID(null) );
 	}
 	
 	@Test
-	void testSetIme() {
+	public void testSetIme() {
 		k.setIme("Petar");
 		assertEquals("Petar", k.getIme());
 	}
 
 	@Test
-	void testSetImeNull() {
+	public void testSetImeNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> k.setIme(null) );
 	}
 	
 	@Test
-	void testSetImeNedovoljno() {
+	public void testSetImeNedovoljno() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> k.setIme("A") );
 	}
 	
 	@Test
-	void testSetPrezime() {
+	public void testSetPrezime() {
 		k.setPrezime("Petric");
 		assertEquals("Petric", k.getPrezime());
 	}
 
 	@Test
-	void testSetPrezimeNull() {
+	public void testSetPrezimeNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> k.setPrezime(null) );
 	}
 	
 	@Test
-	void testSetPrezimeNedovoljno() {
+	public void testSetPrezimeNedovoljno() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> k.setPrezime("A") );
 	}
 	
 	@Test
-	void testSetBrojTelefona() {
+	public void testSetBrojTelefona() {
 		k.setBrojTelefona("0622412332");
 		assertEquals("0622412332", k.getBrojTelefona());
 	}
 
 	@Test
-	void testSetBrojTelefonaNedovoljno() {
+	public void testSetBrojTelefonaNedovoljno() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> k.setBrojTelefona("123456789") );
 	}
 	
 	@Test
-	void testSetEmail() {
+	public void testSetEmail() {
 		k.setEmail("petar@gmail.com");
 		assertEquals("petar@gmail.com", k.getEmail());
 	}
 	
 	@Test
-	void testSetEmailNull() {
+	public void testSetEmailNull() {
 		assertThrows(java.lang.NullPointerException.class,
 				() -> k.setEmail(null) );
 	}
 	
 	@Test
-	void testSetEmailNemaAt() {
+	public void testSetEmailNemaAt() {
 		assertThrows(java.lang.RuntimeException.class,
 				() -> k.setEmail("petargmail.com") );
 	}
@@ -126,7 +126,7 @@ class KlijentTest {
 		"Marko, Milanovic, Milan, Markovic, false",
 		"Marko, Markovic, Marko, Milanovic, false"
 	})
-	void testEqualsObject(String ime1, String prezime1, String ime2, String prezime2, boolean eq) {
+	public void testEqualsObject(String ime1, String prezime1, String ime2, String prezime2, boolean eq) {
 		k.setIme(ime1);
 		k.setPrezime(prezime1);
 		
@@ -138,7 +138,7 @@ class KlijentTest {
 	}
 
 	@Test
-	void testToString() {
+	public void testToString() {
 		k.setIme("Petar");
 		k.setPrezime("Petric");
 		
